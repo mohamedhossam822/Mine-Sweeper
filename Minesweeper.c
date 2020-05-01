@@ -9,6 +9,7 @@ struct User
     char Name[50];
     int score;
 }Users[20];
+
 int nofusers=0;
 int FlagToDelayGeneration=0;
 void StartGame(char**ShownArray,int**HiddenArrray,int r,int c,int NumberOfMoves,int t);
@@ -162,17 +163,17 @@ void StartGame(char**ShownArray,int**HiddenArray,int Rows,int Colmuns,int Number
         for(i=0;i<Rows;i++)
             for(j=0;j<Colmuns;j++) if(temp[i][j]!=ShownArray[i][j]) {fm=1; break;}
             if(fm==1) NumberOfMoves++;
-            printf("\nNumber Of Moves = %d\n",NumberOfMoves);
+            printf("\nNumber Of Moves = %d",NumberOfMoves);
         /*Checking Number of cells flagged*/
         NumberOfflags=0; /**Edited Line**/
         for(i=0;i<Rows;i++)
             for(j=0;j<Colmuns;j++) if(ShownArray[i][j]=='F') NumberOfflags++;
-            printf("\nNumber of Cells Flagged = %d\n",NumberOfflags);
+            printf("\nNumber of Cells Flagged = %d",NumberOfflags);
         /*Updating Time*/
         Realtime=tt+(clock()/CLOCKS_PER_SEC)-Temptime;
         Rmin=Realtime/60;
         Rsec=Realtime%60;
-        printf("\n Time = %d:%d",Rmin,Rsec);
+        printf("\nTime = %d:%d",Rmin,Rsec);
         for(i=0;i<Rows;i++)
             for(j=0;j<Colmuns;j++) temp[i][j]=ShownArray[i][j];
         printf("\n\nActions :\n\nopen(1)\n\nFlag(2)\n\nQuestion(3)\n\nUnmark(4)\n\nSave(5)\n\nQuit(6)\n\n");
